@@ -10,8 +10,30 @@ namespace ConnectedLabLesson.Service
 {
     public class AuthService
     {
-        ushort secretKey = 0x0088;
+        private ushort secretKey = 0x0088;
+        public void PrintMenu()
+        {
+            Console.WriteLine("Регистрация? Нажмите 1");
+            Console.WriteLine("Вход? Нажмите 2");
+            Console.WriteLine("Выход? Нажмите 0");
+            int signUp = Console.Read() - 48;
 
+            if (signUp == 1)
+            {
+            }
+            else if (signUp == 2)
+            {
+                
+            }
+            else if (signUp == 0)
+            {
+                Console.WriteLine("До свидания!");                
+            }
+            else
+            {
+                Console.WriteLine("Нет такого пункта меню");
+            }
+        }
         public Account ChooseMenu()
         {
             Console.WriteLine("Регистрация? Нажмите 1");
@@ -88,7 +110,7 @@ namespace ConnectedLabLesson.Service
             return null;
         }
 
-        public static string EncodeDecrypt(string str, ushort secretKey)
+        public string EncodeDecrypt(string str, ushort secretKey)
         {
             var ch = str.ToArray(); 
             string newStr = "";      
@@ -97,7 +119,7 @@ namespace ConnectedLabLesson.Service
             return newStr;
         }
 
-        public static char TopSecret(char character, ushort secretKey)
+        public char TopSecret(char character, ushort secretKey)
         {
             character = (char)(character ^ secretKey); 
             return character;
