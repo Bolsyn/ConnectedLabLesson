@@ -21,7 +21,7 @@ namespace ConnectedLabLesson.Data
         public abstract void Update(T entity);
         public abstract void Delete(T entity);
         public abstract ICollection<T> Select();
-        public abstract ICollection<T> Select(string value);
+        public abstract T Select(string value);
         public void Dispose()
         {
             connection.Close();
